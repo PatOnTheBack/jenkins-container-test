@@ -1,7 +1,7 @@
 language:            generic
 sudo:                required
 service:
-  - jenkins
+  - docker
 
 before_install:
 # Dockerfile.dev is used instead of Dockerfile.
