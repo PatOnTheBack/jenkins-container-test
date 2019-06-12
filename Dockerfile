@@ -6,9 +6,8 @@ EXPOSE 8080
 # Unneeded when using SSH slaves
 # EXPOSE 5000
 
-# Install Plugins
-RUN install-plugins.sh ant build-timeout credentials-binding email-ext cloudbees-folder git gradle ldap mailer matrix-auth antisamy-markup-formatter pam-auth pipeline-stage-view ssh-slaves timestamper warnings-ng ws-cleanup
-# I think `pipeline` is automatically installed as a dependency of `pipeline-stage-view`
-# pipeline
+# Install recommended plugins and `warnings-ng`
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 # Start Jenkins process
