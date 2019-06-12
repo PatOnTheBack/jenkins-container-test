@@ -1,0 +1,28 @@
+language:            generic
+sudo:                required
+service:
+  - docker
+
+before_install:
+# Dockerfile.dev is used instead of Dockerfile.
+- docker build --tag jenkins/jenkins:alpine --file Dockerfile.dev .
+
+deploy:
+  # Region, bucket name, and keys are stored in environmental variables.
+  provider:          elasticbeanstalk
+  # Lookup region in the Amazon Elastic Beanstalk console.
+  region:            $REGION
+  app:               "jenkins-container-test"
+  env:               "JenkinsContainerTest-env"
+  # Lookup bucket name in the Amazon Elastic Beanstalk console.
+  bucket_name:       $BUCKET_NAME
+  bucket_path:       "jenkins-container-test"
+  # Prevent `git stash --all`
+  skip_cleanup:      true
+  # Travis CI should deploy from the master branch instead of testing.
+  on:
+    branch:          master
+  access_key_id:
+    secure:          $AWS_ACCESS_KEY
+  secret_access_key:
+    secure:          $AWS_SECRET_KEY
