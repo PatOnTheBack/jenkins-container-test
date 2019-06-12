@@ -1,0 +1,17 @@
+ant
+antisamy-markup-formatter
+build-timeout
+cloudbees-folder
+credentials-binding
+email-ext
+git
+gradle
+ldap
+mailer
+matrix-auth
+pam-auth
+pipeline-stage-view
+ssh-slaves
+timestamper
+warnings-ng
+ws-cleanup
