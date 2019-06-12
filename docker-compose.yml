@@ -1,0 +1,16 @@
+web:
+  # Use latest Jenkins Alpine Linux Docker image.
+  image:                   'jenkins/jenkins:alpine'
+  # Always restart if container goes down.
+  restart:                 always
+  hostname:
+    environment:
+      - URL
+  environment:
+  ports:
+  # Open ports for HTTP and SSH.
+    - '8080:8080'
+    # Unneeded when using SSH slaves
+    # - '5000:5000'
+  volumes:
+    - 'jenkins_home:/var/jenkins_home'
