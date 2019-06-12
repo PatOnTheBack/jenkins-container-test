@@ -1,8 +1,8 @@
 web:
   # Use latest Jenkins Alpine Linux Docker image.
-  image:                   'jenkins/jenkins:alpine'
+  image:         'jenkins/jenkins:alpine'
   # Always restart if container goes down.
-  restart:                 always
+  restart:       always
   hostname:
     environment:
       - URL
