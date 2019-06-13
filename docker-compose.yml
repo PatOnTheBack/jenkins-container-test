@@ -3,6 +3,10 @@ web:
   image:         'jenkins/jenkins:alpine'
   # Always restart if container goes down.
   restart:       always
+  hostname:
+    environment:
+      - URL
+  environment:
   ports:
   # Open ports for HTTP and SSH.
     - '8080:8080'

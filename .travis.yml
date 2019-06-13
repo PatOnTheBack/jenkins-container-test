@@ -7,11 +7,6 @@ before_install:
 # Dockerfile.dev is used instead of Dockerfile.
 - docker build --tag jenkins/jenkins:alpine --file Dockerfile.dev .
 
-script:
-  - docker-compose up
-on:
-  branch: master
-
 deploy:
   # Region, bucket name, and keys are stored in environmental variables.
   provider:          elasticbeanstalk
